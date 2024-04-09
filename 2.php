@@ -1,53 +1,47 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Convertidor de Temperatura</title>
-</head>
 <body>
-    <h1>Convertir Temperaturas</h1>
-
-    
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <label for="temperatura">Ingresa la temperatura:</label>
-        <input type="number" name="temperatura" id="temperatura" step="0.01" required>
-
-        
-        <label for="unidad">Unidad:</label>
-        <select name="unidad" id="unidad">
-            <option value="celsius">Celsius</option>
-            <option value="fahrenheit">Fahrenheit</option>
+    <title>Calculdora basica jeje</title>
+    <p></p>
+    <p></p>
+    <form action="ejercicio2.php" method="post">
+        Primer digito: <input type="number" name="num1">
+        <br>
+        <br>
+        Operacion (+*-/): <select name="operacion" >
+        <option value="divi">Division</option>
+        <option value="res">Resta</option>
+        <option value="sum">Suma</option>
+        <option value="mul">Multiplicacion</option>
         </select>
-
-        <input type="submit" name="enviar" value="Convertir">
+        <br>
+        <br>
+        segundo digito:<input type="number" name="num2">
+        <input type="submit" name="submit" value="=">
     </form>
-
-    <?php
-    
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        
-        $temperatura_ingresada = $_POST["temperatura"];
-        $unidad_seleccionada = $_POST["unidad"];
-
-        
-        if (is_numeric($temperatura_ingresada)) {
-            
-            if ($unidad_seleccionada == "celsius") {
-                $fahrenheit = ($temperatura_ingresada * 9/5) + 32;
-                echo "<p>" . htmlspecialchars($temperatura_ingresada) . " °C = " . htmlspecialchars($fahrenheit) . " °F</p>";
-            }
-           
-            elseif ($unidad_seleccionada == "fahrenheit") {
-                $celsius = ($temperatura_ingresada - 32) * 5/9;
-                echo "<p>" . htmlspecialchars($temperatura_ingresada) . " °F = " . htmlspecialchars($celsius) . " °C</p>";
-            }
-          
-            else {
-                echo "<p>Error: Unidad no válida.</p>";
-            }
-        } else {
-            echo "<p>Error: La temperatura ingresada no es un número válido.</p>";
-        }
-    }
-    ?>
 </body>
 </html>
+    <?php
+if(isset($_POST['submit'])){
+    $num1 = $_POST['num1'];
+    $num2 = $_POST['num2'];
+    $operacion = $_POST['operacion'];
+    switch ($operacion) {
+        case 'sum':
+            $resultado = $num1 + $num2;
+            break;
+        case 'res':
+            $resultado = $num1 - $num2;
+            break;
+        case 'mul':
+            $resultado = $num1 * $num2;
+            break;
+        case 'divi':
+            $resultado = $num1 / $num2;
+            break;
+        
+        default:
+            $resultado = "sin resultados";
+            break;
+    }
+    echo "el resultado de la operacion ".$operacion." es igual a ".$resultado;
+}
+?>
