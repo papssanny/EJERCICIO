@@ -7,7 +7,7 @@
     <h1>Sorteo</h1>
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         Nombre: <input type="text" name="nombre" required><br>
-        <input type="submit" name="submit" value="Participar">
+        <input type="submit" name="submit" value="Participa">
     </form>
 
     <?php

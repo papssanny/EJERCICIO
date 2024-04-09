@@ -7,7 +7,7 @@
     <h1>Calculadora de Edad</h1>
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         Fecha de Nacimiento: <input type="date" name="fecha_nacimiento" required>
-        <input type="submit" value="Calcular Edad">
+        <input type="submit" value="Calcula Edad">
     </form>
 
     <?php

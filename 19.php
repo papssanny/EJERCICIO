@@ -7,7 +7,7 @@
     <h1>Palabras Prohibidas en un Texto</h1>
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         Texto: <textarea name="texto" rows="5" required></textarea><br>
-        Palabras prohibidas (separadas por comas): <input type="text" name="palabras_prohibidas" required><br>
+        Palabras prohibidas (separadas por comas ,): <input type="text" name="palabras_prohibidas" required><br>
         <input type="submit" name="submit" value="Procesar">
     </form>
 
